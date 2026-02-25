@@ -1,0 +1,79 @@
+public static String generateCensusReport(Student[] students)
+{
+    StringBuilder report = new StringBuilder();
+
+    int total = students.length;
+    int valid = 0;
+    int invalid = 0;
+
+    int totalAge = 0;
+    String longestName = "";
+
+    int school1 = 0;
+    int school2 = 0;
+    int school3 = 0;
+
+   
+    for(int i = 0; i < students.length; i++)
+    {
+        Student s = students[i];
+
+        if(s.isValidCitizenship())
+            valid++;
+        else
+            invalid++;
+
+        totalAge += s.getAge();
+
+        if(s.getName().length() > longestName.length())
+            longestName = s.getName();
+
+       
+        if(s.getSchool().equals("Iathar Int. College"))
+            school1++;
+        else if(s.getSchool().equals("IKC College"))
+            school2++;
+        else if(s.getSchool().equals("ICP College"))
+            school3++;
+    }
+
+    double avgAge = (double) totalAge / total;
+
+   
+    report.append("=====================================\n");
+    report.append("         CENSUS REPORT\n");
+    report.append("=====================================\n");
+
+    report.append(String.format("Total: %d | Valid: %d | Invalid: %d\n\n",
+            total, valid, invalid));
+
+    
+    report.append(String.format("%-8s %-22s %-5s %-6s %-8s\n",
+            "Init", "Name", "Age", "Grade", "Status"));
+    report.append("-------------------------------------------------------------\n");
+
+    for(int i = 0; i < students.length; i++)
+    {
+        Student s = students[i];
+
+        String status = s.isValidCitizenship() ? "Valid" : "Invalid";
+
+        report.append(String.format("%-8s %-22s %-5d %-6d %-8s\n",
+                s.getNameInitials(),
+                s.getName(),
+                s.getAge(),
+                s.getGrade(),
+                status));
+    }
+
+   
+    report.append("\n=========== STATISTICS ===========\n");
+    report.append(String.format("Average Age: %.2f\n", avgAge));
+    report.append(String.format("Longest Name: %s\n", longestName));
+    report.append("\nStudents Per School:\n");
+    report.append(String.format("Iathar Int. College: %d\n", school1));
+    report.append(String.format("IKC College: %d\n", school2));
+    report.append(String.format("ICP College: %d\n", school3));
+
+    return report.toString();
+}
