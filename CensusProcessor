@@ -1,0 +1,29 @@
+public class CensusProcessor
+{
+    public static Student[] parseCSV(String[] csvData)
+    {
+       
+        Student[] students = new Student[csvData.length - 1];
+
+        int index = 0;
+
+        for(int i = 1; i < csvData.length; i++)
+        {
+            String line = csvData[i];
+
+            String[] data = line.split(",");
+
+            String name = data[0].trim();
+            int age = Integer.parseInt(data[1].trim());
+            String school = data[2].trim();
+            int grade = Integer.parseInt(data[3].trim());
+            String citizenship = data[4].trim();
+            String phone = data[5].trim();
+
+            students[index] = new Student(name, age, school, grade, citizenship, phone);
+            index++;
+        }
+
+        return students;
+    }
+}
