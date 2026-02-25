@@ -4,13 +4,13 @@ public class TestCensus
     {
         String[] csvData = {
             "Name,Age,School,Grade,Citizenship,Phone",
-            "Ram Bahadur Thapa,18,Iathar Int. College,12,01-0012345,9841234567",
-            "Sita Kumari Rai,17,Iathar Int. College,11,01-0054321,9807654321",
-            "Hari Prasad Sharma,19,IKC College,12,02-0098765,9812345678",
-            "Gita Devi Tamang,16,ICP College,10,03-0011111,9800000000",
+            "Abhisek shah,18,Iathar Int. College,12,01-0012345,9841234567",
+            "Nita rai,17,Iathar Int. College,11,01-0054321,9807654321",
+            "Ram Sharma,19,IKC College,12,02-0098765,9812345678",
+            "Sarita gurung,16,ICP College,10,03-0011111,9800000000",
             "Bikash Kumar Limbu,18,Iathar Int. College,12,01-0077777,9841111111",
-            "Anita Rai,17,IKC College,11,04-0022222,9812340000",
-            "Deepak Shah,20,ICP College,12,01-00ABCDE,9867890123"
+            "Ankita Rai,17,IKC College,11,04-0022222,9812340000",
+            "Deepesh jhan,20,ICP College,12,01-00ABCDE,9867890123"
         };
 
         Student[] students = CensusProcessor.parseCSV(csvData);
